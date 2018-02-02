@@ -1,17 +1,18 @@
 class Figure():
 
-    def __init__(self, dataname, title=None):
+    def __init__(self, dataname, title=None, _with=None):
         self.dataname = dataname
         self.title = title
+        self._with = _with
 
     def __str__(self):
         statement = self.dataname
-        if self.with_style:
-            statement += f" with {self.with_style}"
+        if self._with:
+            statement += f" with {self._with}"
         if self.title:
             statement += f" title '{self.title}'"
         return statement
 
     def _with(self, style):
-        self.with_style = style
+        self._with = style
         return self

@@ -1,6 +1,12 @@
 # gnuplot-py
 A gnuplot binding for Python
 
+## install
+
+```bash
+pip install git+https://github.com/cympfh/gnuplot-py.git
+```
+
 ## a sample code
 
 ```python

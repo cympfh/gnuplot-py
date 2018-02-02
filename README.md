@@ -4,7 +4,7 @@ A gnuplot binding for Python
 ## install
 
 ```bash
-pip install git+https://github.com/cympfh/gnuplot-py.git
+pip install -U git+https://github.com/cympfh/gnuplot-py.git
 ```
 
 ## a sample code

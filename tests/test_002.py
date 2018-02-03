@@ -1,5 +1,5 @@
 """
-plotting 2d-numpy data
+plotting 2d-numpy data, 2 columns
 """
 import os
 
@@ -9,7 +9,7 @@ from gnuplot import Figure, Gnuplot
 
 def plot(**kwds):
 
-    out_path = '/tmp/test.2d.png'
+    out_path = '/tmp/test_002.png'
     os.path.exists(out_path) and os.unlink(out_path)
 
     with Gnuplot() as g:

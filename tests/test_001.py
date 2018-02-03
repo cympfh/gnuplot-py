@@ -9,7 +9,7 @@ from gnuplot import Figure, Gnuplot
 
 def plot(**kwds):
 
-    out_path = '/tmp/test.1d.png'
+    out_path = '/tmp/test_001.png'
     os.path.exists(out_path) and os.unlink(out_path)
 
     with Gnuplot() as g:

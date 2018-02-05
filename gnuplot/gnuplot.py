@@ -44,3 +44,6 @@ class Gnuplot():
 
     def plot(self, *ps: figure.Figure):
         self.write("plot " + ','.join(str(p) for p in ps))
+
+    def splot(self, *ps: figure.Figure):
+        self.write("splot " + ','.join(str(p) for p in ps))

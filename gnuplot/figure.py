@@ -1,14 +1,22 @@
 class Figure():
 
-    def __init__(self, dataname, title=None, _with=None, using=None):
+    def __init__(self, dataname,
+                 title=None,
+                 _with=None,
+                 using=None,
+                 matrix=False):
         self.dataname = dataname
         self.title = title
         self._with = _with
         self.using = using
+        self.matrix = matrix
 
     def __str__(self):
 
         statement = self.dataname
+
+        if self.matrix:
+            statement += " matrix"
 
         if self.using:
             if type(self.using) == str:

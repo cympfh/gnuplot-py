@@ -2,13 +2,11 @@ import subprocess
 import sys
 from typing import Any, List, Union
 
-import numpy
-
 from gnuplot.data import Data
 from gnuplot.figure import Figure
 
 
-class Gnuplot():
+class Gnuplot:
 
     _attr_hook = False
     _var_id = 0

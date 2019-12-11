@@ -1,2 +1,3 @@
-from .gnuplot import Gnuplot
-from .figure import Figure
+from .gnuplot import Gnuplot  # NOQA
+from .figure import Figure  # NOQA
+from .data import Data  # NOQA

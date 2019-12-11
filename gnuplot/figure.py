@@ -1,33 +1,11 @@
-class Figure():
+from gnuplot.entity import PlotOptions
 
-    def __init__(self, dataname,
-                 title=None,
-                 _with=None,
-                 using=None,
-                 matrix=False):
-        self.dataname = dataname
-        self.title = title
-        self._with = _with
-        self.using = using
-        self.matrix = matrix
 
-    def __str__(self):
+class Figure:
 
-        statement = self.dataname
+    def __init__(self, expression: str, **kwargs):
+        self.expression = expression
+        self.options = PlotOptions(**kwargs)
 
-        if self.matrix:
-            statement += " matrix"
-
-        if self.using:
-            if type(self.using) == str:
-                statement += f" u {self.using}"
-            elif type(self.using) == list:
-                statement += f" u {':'.join(map(str, self.using))}"
-            else:
-                raise NotImplementedError
-
-        if self._with:
-            statement += f" with {self._with}"
-        if self.title:
-            statement += f" title '{self.title}'"
-        return statement
+    def __str__(self) -> str:
+        return f"{self.expression} {self.options}"

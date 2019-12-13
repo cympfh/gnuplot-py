@@ -4,6 +4,7 @@ from typing import Any, List, Union
 
 from gnuplot.data import Data
 from gnuplot.figure import Figure
+from gnuplot.entity import LineStyle
 
 
 class Gnuplot:
@@ -16,22 +17,30 @@ class Gnuplot:
         self.debug = debug
 
     def setattr(self, name: str, value: Any):
+        """Primitive __setattr__"""
         super().__setattr__(name, value)
 
     def __enter__(self):
+        """Hack __setattr___"""
         self.setattr('_attr_hook', True)
         return self
 
     def __exit__(self, types, value, tb):
+        """Unhack __setattr___"""
         self.setattr('_attr_hook', False)
         self.gnuplot.__exit__(types, value, tb)
 
     def write(self, statement: str):
+        """Insert command into gnuplot process"""
         self.gnuplot.stdin.write(bytes(statement + '\n', 'utf-8'))
         if self.debug:
             sys.stderr.write(statement + '\n')
 
     def __setattr__(self, name: str, value: Any):
+        """Generic set
+
+        set {name} {value}
+        """
         if not self._attr_hook:
             return self.setattr(name, value)
 
@@ -42,6 +51,10 @@ class Gnuplot:
             self.write(f"set {name}")
         else:
             self.write(f"set {name} {str(value)}")
+
+    def style_line(self, index: int, style: LineStyle):
+        """Line style"""
+        self.write(f"set style line {index} {style}")
 
     def define_data(self, plots: List[Union[Figure, Data]]):
         for p in plots:

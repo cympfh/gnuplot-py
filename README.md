@@ -53,3 +53,21 @@ with Gnuplot() as g:
 ```
 
 See `examples/` for more samples.
+
+### Tip: How to use on Google Colab (or Jupyter Notebook)
+
+```python
+# install
+!pip install -U git+https://github.com/cympfh/gnuplot-py.git
+!apt install gnuplot
+
+# plot
+with Gnuplot() as g:
+    g.output(Path('/tmp/out.png'))
+    ...
+    g.plot(...)
+
+# display!
+from IPython.display import Image
+Image('/tmp/out.png')    
+```

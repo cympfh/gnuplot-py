@@ -4,6 +4,7 @@ A gnuplot binding for Python
 ## install
 
 ```bash
+# install gnuplot with apt, yum or brew. Then,
 pip install -U git+https://github.com/cympfh/gnuplot-py.git
 ```
 
@@ -54,7 +55,7 @@ with Gnuplot() as g:
 
 See `examples/` for more samples.
 
-### Tip: How to use on Google Colab (or Jupyter Notebook)
+### Tip: How to use on Google Colab or Jupyter Notebook?
 
 ```python
 # install
